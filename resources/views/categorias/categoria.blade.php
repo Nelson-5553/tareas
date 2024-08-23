@@ -32,6 +32,6 @@
 </div>
 
 <!-- Incluye tu archivo JavaScript -->
-<script src="/resources/js/bootstrap.js"></script>
+<script src="/resources/js/modal.js"></script>
         
 @endsection
