@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\TareasController;
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,8 @@ Route::get('/', function () {
 //      return view('tareas.new')->name('tareas');;
 //  });
 
+// Rutas de las tareas...
+
 Route::get('Mostrar/Todo', [TareasController::class, 'tareas' ])->name('tarea');
 
  route::get('Mostrar/tarea', [TareasController::class,'index'])->name('Todo');
@@ -36,6 +40,7 @@ Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->
 
 Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
 
+//Rutas inicio de sesion
 
 Route::middleware([
     'auth:sanctum',
@@ -46,3 +51,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+//Rutas para categorias
+
+Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
