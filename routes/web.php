@@ -14,15 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('tareas.new');
+    return view('welcome');
 });
 
 
-route::get('Mostrar/tarea', [TareasController::class,'index'])->name('Todo');
+// Route::get('/todo', function () {
+//      return view('tareas.new')->name('tareas');;
+//  });
+
+Route::get('Mostrar/Todo', [TareasController::class, 'tareas' ])->name('tarea');
+
+ route::get('Mostrar/tarea', [TareasController::class,'index'])->name('Todo');
 
 Route::get('Mostrar/tablas',[TareasController::class,'visualizar'])->name('Tablasrr');
-
-Route::get('Mostrar/categorias', [TareasController::class, 'categorias' ])->name('categoria');
 
 route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
 
@@ -32,3 +36,13 @@ Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->
 
 Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
