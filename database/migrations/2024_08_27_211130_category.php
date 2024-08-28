@@ -16,6 +16,8 @@ return new class extends Migration
             $table->bigIncrements("id");
             $table->string("name");
             $table->string("color");
+            $table->timestamp('updated_at');
+            $table->timestamp('created_at');
         });
     }
 

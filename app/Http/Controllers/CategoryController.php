@@ -30,12 +30,25 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Category = new Category();
+
+        $Category->name = $request->name;
+        $Category->color = $request->color;
+
+        $Category->save();
+
+        return redirect()->route("categorias")->with("success","Cagtegoria guardada correctamente");
+        
     }
 
-    /**
-     * Display the specified resource.
-     */
+    public function visualizar(){
+
+        $category = Category::all();
+
+        return view("categorias.categoria", compact("category"));
+
+
+    }
     public function show(string $id)
     {
         //

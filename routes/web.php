@@ -55,3 +55,7 @@ Route::middleware([
 //Rutas para categorias
 
 Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
+
+Route::post('tipo', [CategoryController::class,'store'])->name('store.categorias');
+
+Route::get('Mostrar/Categoria', [CategoryController::class,'visualizar' ])->name('category');
