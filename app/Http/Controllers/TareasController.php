@@ -24,9 +24,9 @@ class TareasController extends Controller
     return view("visualizar.tablas",compact("tareas"));
 }
 
-public function categorias(){
+public function tareas(){
     
-    return view("categorias.categoria");
+    return view("tareas.new");
 }
 
     public function store(StoreTarea $request){
