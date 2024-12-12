@@ -37,8 +37,8 @@ class CategoryController extends Controller
 
         $Category->save();
 
-        return redirect()->route("categorias")->with("success","Cagtegoria guardada correctamente");
-        
+        return redirect()->route("category")->with("success","Cagtegoria guardada correctamente");
+
     }
 
     public function visualizar(){
