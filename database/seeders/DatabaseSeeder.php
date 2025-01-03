@@ -13,13 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-       $tarea = new tarea();
-
-       $tarea->name = "Cirugia";   
-       $tarea->descripcion="Coputador de jefe marelvis no internet";
-
-       $tarea->save();
+       $this->call(UserSeeder::class);
     }
 
-    
+
 }
