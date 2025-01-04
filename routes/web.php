@@ -26,11 +26,8 @@ Route::get('/', function () {
 
 // Rutas de las tareas...
 
-Route::get('Mostrar/Todo', [TareasController::class, 'tareas' ])->name('tarea');
 
- route::get('Mostrar/tarea', [TareasController::class,'index'])->name('Todo');
-
-Route::get('Mostrar/tablas',[TareasController::class,'visualizar'])->name('Tablasrr');
+route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.index');
 
 route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
 
