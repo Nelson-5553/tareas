@@ -27,8 +27,8 @@ class UserSeeder extends Seeder
 
         // Crear más usuarios de ejemplo si lo necesitas
         User::create([
-            'name' => 'Jane Smith',
-            'email' => 'jane.smith@example.com',
+            'name' => 'Jane doe',
+            'email' => 'jane.doe@example.com',
             'email_verified_at' => now(),
             'password' => Hash::make('password123'),
             'current_team_id' => null,
