@@ -24,18 +24,6 @@ Route::get('/', function () {
 //      return view('tareas.new')->name('tareas');;
 //  });
 
-// Rutas de las tareas...
-
-
-route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.index');
-
-route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
-
-Route::get('Mostrar/tablas/{tarea}', [TareasController::class, 'edit' ])->name('tareas.edit');
-
-Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->name('tarea.update');
-
-Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
 
 //Rutas inicio de sesion
 
@@ -49,10 +37,30 @@ Route::middleware([
     })->name('dashboard');
 });
 
+
+// Rutas de las tareas...
+
+route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.index');
+
+route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
+
+Route::get('Mostrar/tablas/{tarea}', [TareasController::class, 'edit' ])->name('tareas.edit');
+
+Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->name('tarea.update');
+
+Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
+
 //Rutas para categorias
 
 Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
 
+Route::get('Mostrar/Categoria', [CategoryController::class,'visualizar' ])->name('category');
+
 Route::post('tipo', [CategoryController::class,'store'])->name('store.categorias');
 
-Route::get('Mostrar/Categoria', [CategoryController::class,'visualizar' ])->name('category');
+Route::get('Mostrar/Categoria/{categoria}', [CategoryController::class, 'edit'])->name('categoria.edit');
+
+Route::put('Mostrar/Actualizar/{categoria}', [CategoryController::class, 'update'])->name('categoria.update');
+
+
+

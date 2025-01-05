@@ -45,9 +45,10 @@
 
     </div>
 
-      <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+    <div class="max-w-6xl overflow-x-auto mx-auto">
+        <div class="flex flex-col justify-center items-center min-h-screen">
+            <table class="text-sm text-left w-96 rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3 rounded-s-lg">
                         Categoria
@@ -56,23 +57,27 @@
                         Color
                     </th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 @foreach ($category as $categoria)
-                <tr class="bg-white dark:bg-gray-800">
-                    <!-- Columna Categoria -->
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$categoria->name}}
-                    </td>
-                    <!-- Columna Color (Asegúrate de tener el campo 'color' en tu modelo) -->
-                    <td class="px-6 py-4">
-                        <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{$categoria->color}};"></span><!-- Puedes cambiar esto según tu lógica -->
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <!-- Columna Categoria -->
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{$categoria->name}}
+                        </td>
+                        <!-- Columna Color -->
+                        <td class="px-6 py-4">
+                            <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{$categoria->color}};"></span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="{{ route('categoria.edit', $categoria) }}">Actualizar</a>
 
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

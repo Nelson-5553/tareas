@@ -57,17 +57,25 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $categoria)
     {
-        //
+//        dd($categoria);
+        return view("categorias.CategoriaUpdate", compact('categoria'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $categoria)
     {
-        //
+        $categoria -> name = $request->name;
+        $categoria -> color = $request->color;
+
+        $categoria -> save();
+
+        return redirect()->route("category");
+
     }
 
     /**
