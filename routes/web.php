@@ -54,7 +54,7 @@ Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tar
 
 Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
 
-Route::get('Mostrar/Categoria', [CategoryController::class,'visualizar' ])->name('category');
+Route::get('Mostrar/Categoria/Visualizar', [CategoryController::class,'visualizar' ])->name('category');
 
 Route::post('tipo', [CategoryController::class,'store'])->name('store.categorias');
 

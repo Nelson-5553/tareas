@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('descripcion');
             $table->timestamp('updated_at');
             $table->timestamp('created_at');
+            $table->foreignId('id_categoria')
+                ->constrained('categories')
+                ->onDelete('set null')
+                ->onUpdate('cascade');
+
         });
     }
 

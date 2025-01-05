@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class tarea extends Model
 {
     use HasFactory;
-
-    // protected $fillable = ['name','descripcion'];
-    protected $guarded=[];
-
-    public function getRouteKeyName()
+    protected $fillable = ['name', 'descripcion'];
+    public function Category()
     {
-        return "name";
+        return $this->belongsTo(Category::class, 'id_category');
     }
+
 }
