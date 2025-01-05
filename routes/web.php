@@ -62,5 +62,7 @@ Route::get('Mostrar/Categoria/{categoria}', [CategoryController::class, 'edit'])
 
 Route::put('Mostrar/Actualizar/{categoria}', [CategoryController::class, 'update'])->name('categoria.update');
 
+Route::delete('Mostrar/{categoria}', [CategoryController::class, 'destroy'])->name('categoria.destroy');
+
 
 

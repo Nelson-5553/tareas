@@ -71,7 +71,13 @@
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('categoria.edit', $categoria) }}">Actualizar</a>
-
+                        </td>
+                        <td class="px-6 py-4">
+                            <form action="{{route('categoria.destroy' ,$categoria)}}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
