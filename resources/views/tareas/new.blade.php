@@ -69,7 +69,7 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
             <th scope="col" class="px-4 py-4">
-                Id
+                color
             </th>
             <th scope="col" class="px-4 py-4">
                 Nombre de tareas
@@ -87,7 +87,7 @@
         @foreach ($tareas as $tarea)
             <tr class="bg-white border-b hover:bg-gray-50">
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
-                    {{$tarea->id}}
+                    <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{ $tarea->Category->color ?? 'Sin categoría' }};"></span>
                 </td>
 
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
