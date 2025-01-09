@@ -47,6 +47,11 @@
 
     <div class="max-w-6xl overflow-x-auto mx-auto">
         <div class="flex flex-col justify-center items-center min-h-screen">
+            @if (session('success'))
+                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <table class="text-sm text-left w-96 rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

@@ -74,7 +74,7 @@ class CategoryController extends Controller
 
         $categoria -> save();
 
-        return redirect()->route("category");
+        return redirect()->route("category")->with("success", "Actualizado correctamente");
 
     }
 
@@ -85,6 +85,6 @@ class CategoryController extends Controller
     {
         $categoria-> delete();
 
-        return redirect()->route('category')->with("succes", "Eliminado correctamente");
+        return redirect()->route('category')->with("success", "Eliminado correctamente");
     }
 }

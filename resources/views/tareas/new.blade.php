@@ -27,6 +27,22 @@
             @enderror
           </div>
         </div>
+          <div>
+          <label for="" class="block text-sm font-medium leading-6 text-gray-900">Nombre de Categoria</label>
+          <div class="mt-2">
+          <select id="id_category" name="id_category" class="flex justify-end w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              @foreach($category as $categoria)
+                  <option value="{{$categoria->id}}">
+                      {{$categoria->name}}
+                  </option>
+
+              @endforeach
+          </select>
+            @error('categoria')
+              {{$message}}
+            @enderror
+          </div>
+        </div>
         <div>
           <label for="" class="block text-sm font-medium leading-6 text-gray-900">Descripcion</label>
           <div class="mt-2">
@@ -48,11 +64,7 @@
   </div>
 <h2 class="text-center mb-4"></h2>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-auto mt-8 w-1/2">
-    @if (session('success'))
-        <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
+
     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
@@ -64,6 +76,10 @@
             </th>
             <th scope="col" class="px-4 py-4">
                 Descripcion
+            </th>
+
+            <th scope="col" class="px-4 py-4">
+                Categoria
             </th>
         </tr>
         </thead>
@@ -80,7 +96,9 @@
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                     {{$tarea->descripcion}}
                 </td>
-
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
+                    {{ $tarea->Category->name ?? 'Sin categoría' }}
+                </td>
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap">
                     <form action="{{route('tarea.destroy', $tarea)}}" method="post">
                         @csrf

@@ -10,6 +10,6 @@ class Category extends Model
     use HasFactory;
     public function tareas()
     {
-        return $this->hasMany(tarea::class, 'id');
+        return $this->hasMany(tarea::class, 'id_category');
     }
 }

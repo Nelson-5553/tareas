@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTarea;
 use App\Http\Requests\UpdateTarea;
 use App\Models\tarea;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class TareasController extends Controller
@@ -12,25 +13,26 @@ class TareasController extends Controller
 
     public function index(){
 
-        $tareas = Tarea::all();
-        return view("tareas.new",compact("tareas"));
+        $tareas = Tarea::with('Category')->get();
+        $category = Category::all();
+        return view("tareas.new",compact("tareas", "category"));
 
     }
 
-    public function store(StoreTarea $request){
+    public function store(StoreTarea $request)
+    {
+        // Crear la tarea y asociar la categoría seleccionada
+        $tarea = new Tarea();
 
-        // $tarea= new tarea();
+        $tarea->name = $request->name;            // Asignar nombre de la tarea
+        $tarea->descripcion = $request->descripcion; // Asignar descripción de la tarea
+        $tarea->id_category = $request->id_category;  // Asignar la categoría seleccionada
 
-        // $tarea->name=$request->name;
-        // $tarea->descripcion=$request->descripcion;
+        $tarea->save();  // Guardar la tarea
 
-        // $tarea->save();
-
-        $tarea = Tarea::create(request()->all());
-
-        return redirect()->route('tarea.index')->with("success","Tarea guardada correctamente");
-
+        return redirect()->route('tarea.index')->with('success', 'Tarea guardada correctamente');
     }
+
     public function edit(Tarea $tarea){
         return view('tareas.actualizar',compact('tarea'));
  }

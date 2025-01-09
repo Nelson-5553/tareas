@@ -14,12 +14,12 @@ return new class extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->increments('id');
-            // $table->string('slug')->unique();
             $table->string('name');
             $table->string('descripcion');
             $table->timestamp('updated_at');
             $table->timestamp('created_at');
-            $table->foreignId('id_categoria')
+            $table->foreignId('id_category')
+                ->nullable()
                 ->constrained('categories')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
