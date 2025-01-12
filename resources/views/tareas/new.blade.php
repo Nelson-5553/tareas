@@ -1,8 +1,8 @@
 @extends('app')
 
 @section('content')
-
-    <div class="w-full backdrop-blur-sm p-4 fixed shadow-md">
+<div class="flex justify-center mt-8">
+    <div class="w-2/3 backdrop-blur-sm p-4 shadow-md rounded-lg fixed z-20">
         <form action="{{route('tarea.store')}}" method="POST" class="flex flex-wrap items-center justify-between space-x-4 max-w-6xl mx-auto">
             @csrf
             <div class="flex-1">
@@ -44,47 +44,44 @@
         </form>
     </div>
 
-    <div class="mt-24 px-6 py-12">
+    <div class="w-2/3 mt-24 px-6 py-12">
         @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">
                 {{ session('success') }}
             </div>
         @endif
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg mx-auto mt-8 w-1/2">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                <tr>
-                    <th scope="col" class="px-4 py-4">Color</th>
-                    <th scope="col" class="px-4 py-4">Nombre de tareas</th>
-                    <th scope="col" class="px-4 py-4">Descripción</th>
-                    <th scope="col" class="px-4 py-4">Categoría</th>
-                    <th scope="col" class="px-4 py-4">Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
+        <div class="relative overflow-x-auto sm:rounded-lg mx-auto mt-8 w-full">
+
+            <div class="grid grid-cols-4 gap-6">
                 @foreach ($tareas as $tarea)
-                    <tr class="bg-white border-b hover:bg-gray-50">
-                        <td class="px-4 py-3 font-medium text-gray-900">
-            <span class="inline-block w-6 h-6 rounded-full"
-                  style="background-color: {{ $tarea->Category->color ?? '#ccc' }};"></span>
-                        </td>
-                        <td class="px-4 py-3 font-medium text-gray-900">{{$tarea->name}}</td>
-                        <td class="px-4 py-3 font-medium text-gray-900">{{$tarea->descripcion}}</td>
-                        <td class="px-4 py-3 font-medium text-gray-900">{{$tarea->Category->name ?? 'Sin categoría'}}</td>
-                        <td class="px-4 py-3 font-medium text-gray-900 flex space-x-2">
-                            <form action="{{route('tarea.destroy', $tarea)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600">Eliminar</button>
-                            </form>
-                            <a href="{{route('tareas.edit', $tarea)}}" class="text-blue-600">Editar</a>
-                        </td>
-                    </tr>
+                <div class="w-64 h-64 bg-white rounded-lg border-2 border-black shadow-lg p-4 flex flex-col justify-between">
+                    <!-- Header -->
+                    <div class="flex items-center space-x-2">
+                        <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{ $tarea->Category->color ?? '#ccc' }};"></span>
+                        <h1 class="font-bold text-lg">{{$tarea->name}}</h1>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="flex-1 mt-2 overflow-y-auto text-sm text-gray-700 break-words">
+                        {{$tarea->descripcion}}
+                    </p>
+
+                    <!-- Footer (Buttons) -->
+                    <div class="flex justify-end space-x-4 mt-2">
+                        <form action="{{route('tarea.destroy', $tarea)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:underline">Eliminar</button>
+                        </form>
+                        <a href="{{route('tareas.edit', $tarea)}}" class="text-blue-600 hover:underline">Editar</a>
+                    </div>
+                </div>
                 @endforeach
-                </tbody>
-            </table>
+            </div>
+            <br>
         </div>
     </div>
+</div>
 
 @endsection
