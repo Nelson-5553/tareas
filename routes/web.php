@@ -44,7 +44,9 @@ route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.inde
 
 route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
 
-Route::get('Mostrar/tablas/{tarea}', [TareasController::class, 'edit' ])->name('tareas.edit');
+Route::get('Mostrar/edit/{tarea}', [TareasController::class, 'edit' ])->name('tareas.edit');
+
+Route::get('Mostrar/show/{tarea}', [TareasController::class, 'show' ])->name('tareas.show');
 
 Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->name('tarea.update');
 
