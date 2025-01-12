@@ -28,8 +28,8 @@ class StoreTarea extends FormRequest
     }
     public function messages(): array
     {
-        return [  
-            'descripcion.required' => 'llene esa vaina bien hombre',
+        return [
+            'descripcion.required' => 'El campo Descripcion es obligatorio',
         ];
     }
     public function attributes(): array

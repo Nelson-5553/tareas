@@ -33,9 +33,14 @@ class TareasController extends Controller
         return redirect()->route('tarea.index')->with('success', 'Tarea guardada correctamente');
     }
 
-    public function edit(Tarea $tarea){
-        return view('tareas.actualizar',compact('tarea'));
- }
+    public function edit(Tarea $tarea)
+    {
+        $tarea->load('Category'); // Carga las relaciones solo para la tarea seleccionada
+        $category = Category::all(); // Todas las categorías para el formulario
+
+        return view('tareas.actualizar', compact('tarea', 'category'));
+    }
+
 
     public function update(UpdateTarea $request, Tarea $tarea){
 
