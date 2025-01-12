@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Tarea;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -44,8 +45,8 @@ class CategoryController extends Controller
     public function visualizar(){
 
         $category = Category::all();
-
-        return view("categorias.categoria", compact("category"));
+        $tareas = Category::with('tareas')->get();
+        return view("categorias.categoria", compact("category","tareas"));
 
 
     }

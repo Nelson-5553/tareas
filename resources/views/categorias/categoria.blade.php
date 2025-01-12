@@ -61,6 +61,9 @@
                     <th scope="col" class="px-6 py-3">
                         Color
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Tareas
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,6 +76,9 @@
                         <!-- Columna Color -->
                         <td class="px-6 py-4">
                             <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{$categoria->color}};"></span>
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $categoria->tareas->pluck('name')->join(', ') }}
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('categoria.edit', $categoria) }}">Actualizar</a>
