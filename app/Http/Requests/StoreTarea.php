@@ -23,13 +23,15 @@ class StoreTarea extends FormRequest
     {
         return [
              "name"=> "required|max:20",
-            "descripcion"=>"required"
+            "descripcion"=>"required",
+            "id_category"=>"required"
         ];
     }
     public function messages(): array
     {
         return [
             'descripcion.required' => 'El campo Descripcion es obligatorio',
+            'id_category'=>'El campo Categoria es obligatorio'
         ];
     }
     public function attributes(): array

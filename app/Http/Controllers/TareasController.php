@@ -40,9 +40,8 @@ class TareasController extends Controller
 
     public function edit(Tarea $tarea)
     {
-        $tarea->load('Category'); // Carga las relaciones solo para la tarea seleccionada
-        $category = Category::all(); // Todas las categorías para el formulario
-
+        $tarea->load('Category') ; // Carga las relaciones solo para la tarea seleccionada
+        $category = Category::where('user_id', auth()->id())->get();
         return view('tareas.actualizar', compact('tarea', 'category'));
     }
 
