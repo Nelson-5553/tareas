@@ -39,6 +39,7 @@ Route::middleware([
 
 
 // Rutas de las tareas...
+Route::middleware('auth')->group(function () {
 
 route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.index');
 
@@ -51,9 +52,9 @@ Route::get('Mostrar/show/{tarea}', [TareasController::class, 'show' ])->name('ta
 Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->name('tarea.update');
 
 Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
-
+});
 //Rutas para categorias
-
+Route::middleware('auth')->group(function () {
 Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
 
 Route::get('Mostrar/Categoria/Visualizar', [CategoryController::class,'visualizar' ])->name('category');
@@ -65,6 +66,6 @@ Route::get('Mostrar/Categoria/{categoria}', [CategoryController::class, 'edit'])
 Route::put('Mostrar/Actualizar/{categoria}', [CategoryController::class, 'update'])->name('categoria.update');
 
 Route::delete('Mostrar/{categoria}', [CategoryController::class, 'destroy'])->name('categoria.destroy');
-
+});
 
 
