@@ -16,8 +16,10 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('descripcion');
-            $table->timestamp('updated_at');
-            $table->timestamp('created_at');
+            $table->timestamps();
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onDelete('cascade');
             $table->foreignId('id_category')
                 ->nullable()
                 ->constrained('categories')
