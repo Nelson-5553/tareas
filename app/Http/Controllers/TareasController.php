@@ -12,12 +12,15 @@ use Illuminate\Http\Request;
 class TareasController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
+        $tareas = Tarea::with('Category') // Relación con la categoría
+        ->where('user_id', auth()->id()) // Filtrar por el usuario autenticado
+        ->get(); // Obtener los resultados
 
-        $tareas = Tarea::with('Category')->get();
-        $category = Category::all();
-        return view("tareas.new",compact("tareas", "category"));
+        $category = Category::where('user_id', auth()->id())->get(); // Opcional: Filtrar categorías por usuario autenticado
 
+        return view("tareas.new", compact("tareas", "category"));
     }
 
     public function store(StoreTarea $request)
@@ -28,6 +31,7 @@ class TareasController extends Controller
         $tarea->name = $request->name;            // Asignar nombre de la tarea
         $tarea->descripcion = $request->descripcion; // Asignar descripción de la tarea
         $tarea->id_category = $request->id_category;  // Asignar la categoría seleccionada
+        $tarea->user_id = auth()->id();
 
         $tarea->save();  // Guardar la tarea
 

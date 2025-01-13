@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $Category = Category::all();
+        $Category = Category::where('user_id', auth()->id())->get();
 
         return view("categorias.categoria");
     }
@@ -35,6 +35,7 @@ class CategoryController extends Controller
 
         $Category->name = $request->name;
         $Category->color = $request->color;
+        $Category->user_id = auth()->id();
 
         $Category->save();
 
@@ -44,7 +45,7 @@ class CategoryController extends Controller
 
     public function visualizar(){
 
-        $category = Category::all();
+        $category = Category::where('user_id', auth()->id())->get();
         $tareas = Category::with('tareas')->get();
         return view("categorias.categoria", compact("category","tareas"));
 
