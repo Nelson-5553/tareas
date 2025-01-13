@@ -14,9 +14,21 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::create([
-            'name' => 'Hogar',
-            'color' => '#CC0000',
-        ]);
+        $user = \App\Models\User::first();
+
+        if ($user) {
+            $categories = [
+                ['name' => 'Hogar', 'color' => '#CC0000'],
+                ['name' => 'Trabajo', 'color' => '#00CC00'],
+                ['name' => 'Personal', 'color' => '#0000CC'],
+            ];
+
+            foreach ($categories as $category) {
+                Category::create(array_merge($category, ['user_id' => $user->id]));
+            }
+        } else {
+            \Log::warning('No users found. Please seed users before seeding categories.');
+        }
     }
+
 }
