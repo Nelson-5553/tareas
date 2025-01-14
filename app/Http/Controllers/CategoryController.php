@@ -85,8 +85,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $categoria)
     {
+        $categoria->tareas()->each(function($tareas){
+          $tareas->delete();
+        });
         $categoria-> delete();
-//        $categoria->tareas()->delete();
 
         return redirect()->route('category')->with("success", "Eliminado correctamente");
     }
