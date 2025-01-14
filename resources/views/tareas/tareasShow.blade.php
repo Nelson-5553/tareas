@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div class="flex justify-center">
-<div class="flex items-center max-w-4xl h-screen">
-        <div class="w-2/3 h-2/3 bg-white rounded-lg border-2 border-black shadow-lg p-4 flex flex-col justify-between">
+<div class="flex justify-center p-4">
+<div class="flex items-center max-w-4xl h-screen ">
+        <div class="w-screen h-2/3 bg-white rounded-lg border-2 border-black shadow-lg p-5 flex flex-col justify-between">
             <!-- Header -->
             <div class="flex items-center space-x-2">
                 <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{ $tarea->Category->color ?? '#ccc' }};"></span>
