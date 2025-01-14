@@ -53,15 +53,18 @@ Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->
 
 Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
 });
+
+
 //Rutas para categorias
 Route::middleware('auth')->group(function () {
-Route::get('Mostrar/Categoria', [CategoryController::class, 'index'])->name('categorias');
 
 Route::get('Mostrar/Categoria/Visualizar', [CategoryController::class,'visualizar' ])->name('category');
 
 Route::post('tipo', [CategoryController::class,'store'])->name('store.categorias');
 
 Route::get('Mostrar/Categoria/{categoria}', [CategoryController::class, 'edit'])->name('categoria.edit');
+
+Route::get('Mostrar/shows/{categoria}', [CategoryController::class, 'show'])->name('categoria.show');
 
 Route::put('Mostrar/Actualizar/{categoria}', [CategoryController::class, 'update'])->name('categoria.update');
 
