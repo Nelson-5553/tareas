@@ -64,9 +64,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" class="stroke-1 hover:stroke-2">
-                                    <path fill="currentColor" d="M8.5 4h3a1.5 1.5 0 0 0-3 0m-1 0a2.5 2.5 0 0 1 5 0h5a.5.5 0 0 1 0 1h-1.054l-1.194 10.344A3 3 0 0 1 12.272 18H7.728a3 3 0 0 1-2.98-2.656L3.554 5H2.5a.5.5 0 0 1 0-1zM5.741 15.23A2 2 0 0 0 7.728 17h4.544a2 2 0 0 0 1.987-1.77L15.439 5H4.561zM8.5 7.5A.5.5 0 0 1 9 8v6a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5M12 8a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
-                                </svg>
+                                <x-delete-buttom/>
                             </button>
                         </form>
                     </div>
@@ -77,56 +75,6 @@
     </div>
     </div>
    </div>
-{{--    <div class="max-w-6xl overflow-x-auto mx-auto">--}}
-{{--        <div class="flex flex-col justify-center items-center min-h-screen">--}}
-{{--            @if (session('success'))--}}
-{{--                <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg" role="alert">--}}
-{{--                    {{ session('success') }}--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--            <table class="text-sm text-left w-96 rtl:text-right text-gray-500 dark:text-gray-400">--}}
-{{--                <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">--}}
-{{--                <tr>--}}
-{{--                    <th scope="col" class="px-6 py-3 rounded-s-lg">--}}
-{{--                        Categoria--}}
-{{--                    </th>--}}
-{{--                    <th scope="col" class="px-6 py-3">--}}
-{{--                        Color--}}
-{{--                    </th>--}}
-{{--                    <th scope="col" class="px-6 py-3">--}}
-{{--                        Tareas--}}
-{{--                    </th>--}}
-{{--                </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                @foreach ($category as $categoria)--}}
-{{--                    <tr class="bg-white dark:bg-gray-800">--}}
-{{--                        <!-- Columna Categoria -->--}}
-{{--                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">--}}
-{{--                            {{$categoria->name}}--}}
-{{--                        </td>--}}
-{{--                        <!-- Columna Color -->--}}
-{{--                        <td class="px-6 py-4">--}}
-{{--                            <span class="inline-block w-6 h-6 rounded-full" style="background-color: {{$categoria->color}};"></span>--}}
-{{--                        </td>--}}
-{{--                        <td class="px-6 py-4">--}}
-{{--                            {{ $categoria->tareas->pluck('name')->join(', ') }}--}}
-{{--                        </td>--}}
-{{--                        <td class="px-6 py-4">--}}
-{{--                            <a href="{{ route('categoria.edit', $categoria) }}">Actualizar</a>--}}
-{{--                        </td>--}}
-{{--                        <td class="px-6 py-4">--}}
-{{--                            <form action="{{route('categoria.destroy' ,$categoria)}}" method="post">--}}
-{{--                                @method('DELETE')--}}
-{{--                                @csrf--}}
-{{--                                <button type="submit">Eliminar</button>--}}
-{{--                            </form>--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                @endforeach--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+
 
 @endsection
