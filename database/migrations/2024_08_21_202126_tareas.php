@@ -16,7 +16,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('descripcion');
-            $table->boolean('finished')->default(false);;
+           $table->boolean('finished')->default(false);
             $table->timestamps();
             $table->foreignId('user_id')
                 ->constrained()
