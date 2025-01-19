@@ -29,9 +29,7 @@
                     <form action="{{ route('categoria.destroy', $categoria) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="text-red-500 hover:underline">
-                           <x-delete-buttom/>
-                        </button>
+                        <x-delete-modal id="popup-modal-{{ $categoria->id }}" description="¿Estas seguro de querer borrar la categoria: {{$categoria->name}} las tareas relacionadas esta categoria tambien seran eliminadas?"/>
                     </form>
                 </div>
             </div>
