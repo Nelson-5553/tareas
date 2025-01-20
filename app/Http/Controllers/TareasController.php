@@ -71,6 +71,19 @@ class TareasController extends Controller
 
     }
 
+    public function CompletedFinished(Request $request, $id)
+    {
+        $request->validate([
+            'finished' => 'required|boolean',
+        ]);
+
+        $tarea = Tarea::findOrFail($id);
+        $tarea->finished = $request->input('finished'); // Recibirá 0 o 1
+        $tarea->save();
+
+        return redirect()->route('tarea.index')->with('success', 'Tarea actualizada correctamente.');
+    }
+
 }
 
 

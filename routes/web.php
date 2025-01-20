@@ -38,36 +38,50 @@ Route::middleware([
 });
 
 
-// Rutas de las tareas...
 Route::middleware('auth')->group(function () {
 
-route::get('Mostrar/tarea', [TareasController::class,'index'])->name('tarea.index');
+    // Mostrar lista de tareas
+    Route::get('tareas', [TareasController::class, 'index'])->name('tarea.index');
 
-route::post('tareas', [TareasController::class,'store'])->name('tarea.store');
+    // Crear una nueva tarea
+    Route::post('tareas/store', [TareasController::class, 'store'])->name('tarea.store');
 
-Route::get('Mostrar/edit/{tarea}', [TareasController::class, 'edit' ])->name('tareas.edit');
+    // Actualizar estado de tarea (completar)
+    Route::patch('tareas/{tarea}/completar', [TareasController::class, 'CompletedFinished'])->name('tarea.completed');
 
-Route::get('Mostrar/show/{tarea}', [TareasController::class, 'show' ])->name('tareas.show');
+    // Editar tarea
+    Route::get('tareas/{tarea}/editar', [TareasController::class, 'edit'])->name('tareas.edit');
 
-Route::put('Mostrar/actualizar/{tarea}', [TareasController::class, 'update'] )->name('tarea.update');
+    // Mostrar una tarea específica
+    Route::get('tareas/{tarea}', [TareasController::class, 'show'])->name('tareas.show');
 
-Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
+    // Actualizar tarea
+    Route::put('tareas/{tarea}', [TareasController::class, 'update'])->name('tarea.update');
+
+    // Eliminar tarea
+    Route::delete('tareas/{tarea}', [TareasController::class, 'destroy'])->name('tarea.destroy');
 });
+
 
 
 //Rutas para categorias
 Route::middleware('auth')->group(function () {
-
+//Mostrar lista de Categorias
 Route::get('Mostrar/Categoria/Visualizar', [CategoryController::class,'visualizar' ])->name('category');
 
+//Guardar Nuevas Categorias
 Route::post('tipo', [CategoryController::class,'store'])->name('store.categorias');
 
+//Editar Cateorias
 Route::get('Mostrar/Categoria/{categoria}', [CategoryController::class, 'edit'])->name('categoria.edit');
 
+//Ver informacion de la categoria
 Route::get('Mostrar/shows/{categoria}', [CategoryController::class, 'show'])->name('categoria.show');
 
+//Actualizar categoria
 Route::put('Mostrar/Actualizar/{categoria}', [CategoryController::class, 'update'])->name('categoria.update');
 
+//Eliminar Categoria
 Route::delete('Mostrar/{categoria}', [CategoryController::class, 'destroy'])->name('categoria.destroy');
 });
 
