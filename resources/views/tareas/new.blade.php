@@ -87,13 +87,6 @@
                     Registra la tarea
                 </button>
             </div>
-            <div>
-                <a href=""
-                   class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                   type="button">
-                    Ver tareas terminadas
-                </a>
-            </div>
         </div>
 
         <div class="w-2/3 mt-24 px-6 py-12">
@@ -180,7 +173,7 @@
                         @foreach ($tareas as $tarea)
                             @if($tarea->finished == true)
                                 <div
-                                    class="w-64 h-64 bg-white rounded-lg border-2 border-black shadow-lg p-4 flex flex-col justify-between">
+                                    class="w-64 h-64 bg-white rounded-lg border-2 border-black shadow-lg p-4 flex flex-col justify-between opacity-30 hover:opacity-100 transform-all ">
                                     <!-- Header -->
 
                                     <div class="flex flex-row justify-start items-center space-x-2">
