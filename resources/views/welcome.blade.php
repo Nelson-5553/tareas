@@ -121,7 +121,7 @@
                     <p class=" text-gray-600 text-center md:text-left text-xl">Aquí puedes ver, agregar, editar y eliminar tus tareas. Organiza y sigue el progreso de cada una de ellas para mantenerte al día.</p>
                         </div>
                     <div>
-                            <img class="rounded-lg border border-slate-400 shadow-md" src="{{ asset('storage/foto1.png') }}" alt="imagen">
+                            <img class="rounded-lg border border-slate-400 shadow-md" src="{{ asset('img/foto1.png') }}" alt="imagen">
                      </div>
 
                     </div>
@@ -135,7 +135,7 @@
                         </div>
                         <!-- Imagen -->
                         <div>
-                            <img class="rounded-lg border border-slate-400 shadow-md" src="{{ asset('storage/foto2.png') }}" alt="imagen">
+                            <img class="rounded-lg border border-slate-400 shadow-md" src="{{ asset('img/foto2.png') }}" alt="imagen">
                         </div>
                         <!-- Texto -->
                         <div class="hidden md:block ml-0 md:ml-48">
