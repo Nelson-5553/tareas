@@ -158,6 +158,12 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('tarea.index') }}" :active="request()->routeIs('tarea.index')">
+                {{ __('Tareas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('category') }}" :active="request()->routeIs('category')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
